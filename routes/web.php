@@ -18,11 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'admin_index'])->name('admin');
-});
+// Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
+//     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'admin_index'])->name('admin');
+// });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
 // Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -27,6 +27,12 @@ class HomeController extends Controller
 
         return view('home', ['users' => $users]);
     }
+    public function dashboard()
+    {
+        $users = User::get();
+
+        return view('dashboard', ['users' => $users]);
+    }
     public function admin_index()
     {
         $users = User::get();
